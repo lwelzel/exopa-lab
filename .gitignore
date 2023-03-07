@@ -1,11 +1,11 @@
-# Ignore all
-*
-
-# Unignore all with extensions
-!*.*
-
-# Unignore all dirs
-!*/
+## Ignore all
+#*
+#
+## Unignore all with extensions
+#!*.*
+#
+## Unignore all dirs
+#!*/
 
 ### Windows template
 # Windows thumbnail cache files
@@ -295,3 +295,4 @@ fabric.properties
 *.dat
 /inlist_history/
 *.list
+!/inlist_templates/

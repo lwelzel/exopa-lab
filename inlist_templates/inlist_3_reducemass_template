@@ -1,0 +1,74 @@
+! inlist_reducemass
+
+&star_job
+
+      show_log_description_at_start = .true.
+
+      load_saved_model = .true.
+      saved_model_name = <<save_model_filename2>>
+
+      save_model_when_terminate = .true.
+      save_model_filename = <<save_model_filename3>> !!Change Mcore and fenv in file name
+      !!Core Mass 15 Mearth, fenv = 0.1      
+      
+
+      ! controls for relaxing mass
+      relax_initial_mass = .true. ! gradually change total mass by a wind
+      new_mass = <<M_new>>   ! careful, this mass has to be written in solar masses!!
+      lg_max_abs_mdot = -100 
+         ! e.g., -4 means max abs mdot 1d-4 msun/year
+         ! set to <= -100 to let code pick
+
+ 	!relax_mass_scale = .true. ! gradually rescale mass of star to new_mass
+         ! rescales star mass without changing composition as function of m/mstar
+      !dlgm_per_step = 1d-3
+	!new_mass = 5.00737e-05
+      !change_mass_years_for_dt = 1
+
+
+      eos_file_prefix = 'mesa'
+      kappa_file_prefix = 'gs98'
+      kappa_lowT_prefix = 'lowT_Freedman11'
+
+      change_lnPgas_flag = .true.
+      new_lnPgas_flag = .true.
+      
+      !pgstar_flag = .true.
+      pause_before_terminate = .false. ! lets you examine the final pgstar window when run terminates
+
+/ !end of star_job
+
+&controls
+
+
+	! when to stop
+	max_age = 3d3
+        max_model_number = 1000         ! don't let it go on and on if run stuck
+
+	! knobs
+	T_mix_limit = 0
+
+	! output to files and terminal
+	history_interval = 2
+	terminal_interval = 2
+
+       !Print out star_mass to terminal
+       num_trace_history_values = 1
+       trace_history_value_name(1) = 'star_mass' 
+
+	!!Core Mass 15 Mearth, fenv = 0.1
+	star_history_name = <<star_history_name3>>   !!Change Mcore and fenv in file name 
+	log_directory = <<log_directory>>
+
+
+/
+
+
+&pgstar
+        
+
+      !read_extra_pgstar_inlist1 = .true.
+      !extra_pgstar_inlist1_name = 'inlist_pgstar'    
+
+
+/ ! end of pgstar namelist

@@ -1,0 +1,73 @@
+! inlist_evolve
+
+&star_job
+
+      show_log_description_at_start = .true.
+
+      load_saved_model = .true.
+      saved_model_name = <<save_model_filename4>>
+
+      save_model_when_terminate = .true.
+      save_model_filename = <<save_model_filename5>>
+
+      ! remove energy dissipation from the core
+      relax_L_center = .true.
+      new_L_center = <<final_L_center>> ! ergs/sec
+      dlgL_per_step = 2d-3   !too high causes convergence issues
+      relax_L_center_dt = 3.1558149984d1 ! secyer*1d-6
+
+
+      set_initial_age = .true.
+      initial_age = 0
+
+      !set_initial_dt = .true.    
+      !years_for_initial_dt = 1d3 ! in years make changes depending on mass and flux recieved
+
+      eos_file_prefix = 'mesa'
+      kappa_file_prefix = 'gs98'
+      kappa_lowT_prefix = 'lowT_Freedman11'
+      
+      change_lnPgas_flag = .true.
+      new_lnPgas_flag = .true.
+
+      pgstar_flag = .true.
+      pause_before_terminate = .false. ! lets you examine the final pgstar window when run terminates
+
+
+/ ! end of star_job namelist
+
+
+
+&controls
+
+       varcontrol_target = 1d-4
+ 	mesh_delta_coeff = 0.5
+
+	! when to stop
+	max_age = 5.0d6
+	max_model_number = 1800	! don't let it go on and on if run stuck
+
+
+	Teff_lower_limit = 10
+        logQ_limit=20000000000
+	T_mix_limit = 0
+
+	! output to files and terminal
+	history_interval = 2
+	terminal_interval = 10
+
+	star_history_name = <<star_history_name5>>
+        profile_data_prefix = <<profile_data_prefix>>
+	log_directory = <<log_directory>>
+
+/ ! end of controls namelist
+
+
+&pgstar
+         
+
+       read_extra_pgstar_inlist1 = .true.
+       extra_pgstar_inlist1_name = 'inlist_pgstar'        
+         
+
+/ ! end of pgstar namelist
