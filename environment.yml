@@ -1,0 +1,12 @@
+name: exopa
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - python=3.9
+  - pytest
+  - pathlib
+prefix: C:\Users\lukas\miniconda3\envs\exopa
