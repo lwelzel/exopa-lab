@@ -296,3 +296,4 @@ fabric.properties
 /inlist_history/
 *.list
 !/inlist_templates/
+*.index
