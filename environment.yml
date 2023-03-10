@@ -1,12 +1,20 @@
 name: exopa
 channels:
+  - conda-forge
   - defaults
 dependencies:
-  - numpy
+  - pytables
   - pandas
-  - matplotlib
-  - scipy
+  - h5py=3.6
   - python=3.9
-  - pytest
+  - tqdm
+  - scipy
+  - numpy
+  - matplotlib
   - pathlib
-prefix: C:\Users\lukas\miniconda3\envs\exopa
+  - pathos
+  - pytest
+  - jupyter
+  - seaborn
+  - plotly
+prefix: C:\Users\lukas\anaconda3\envs\exopa
