@@ -300,3 +300,4 @@ fabric.properties
 *.txt
 *.filepart
 *.DS_Store
+*.pdf
