@@ -75,11 +75,11 @@ def run_experiment(ie, _m_p_core, _f):
 def run_grid_search():
     ie = inlist_editor()
 
-    m_p_core_list = [3., 5., 7., 10., 12.]
-    f_list = [0.1, 0.01]
+    # m_p_core_list = [3., 5., 7., 10., 12.]
+    # f_list = [0.1, 0.01]
 
-    # m_p_core_list = [0.1, 0.5, 1., 1.2, 1.5, 2., 3., 5., 7., 10., 12., 15., 20., 25., 30.]
-    # f_list = [0.5, 0.2, 0.05, 0.02, 0.005, 0.002, 0.001]
+    m_p_core_list = [1.5, 2., 3., 5., 7., 10., 12., 15., 20., 25.]
+    f_list = [0.5, 0.2, 0.1, 0.05, 0.02, 0.01, 0.005, 0.002, 0.001]
 
     for _m_p_core in m_p_core_list:
         for _f in f_list:
@@ -107,7 +107,7 @@ def run_random_search(budget=100):
 
 if __name__ == "__main__":
     run_grid_search()
-
+    run_random_search(budget=200)
 
 
 

@@ -44,7 +44,7 @@
  	mesh_delta_coeff = 0.5
 
 	! when to stop
-	max_age = 5.0d6
+	max_age = 5.0d9
 	max_model_number = 1800	! don't let it go on and on if run stuck
 
 

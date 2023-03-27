@@ -23,7 +23,7 @@ def get_all_configs(loc=None):
 
     """
     if loc is None:
-        loc = "./LOGS/"
+        loc = "./LOGS_GS_RS/"
     loc = Path(loc)
 
     dirs = [x for x in loc.iterdir() if x.is_dir()]
@@ -44,7 +44,7 @@ def get_all_configs(loc=None):
 
 def get_experiment_data(loc=None):
     if loc is None:
-        loc = "./LOGS/"
+        loc = "./LOGS_GS_RS/"
     loc = Path(loc)
 
     configs = get_all_configs(loc=loc)
@@ -78,7 +78,7 @@ def make_planet_data(theta):
 
 def save_experiments(successful_configs, failed_configs, file_name=None):
     if file_name is None:
-        file_name = 'exoplanet_A_MESA_lab_GS_RS.hdf5'
+        file_name = 'exoplanet_A_MESA_lab_default.hdf5'
 
     meta_data = [
         'name', 'success', 'm_core', 'f', 'version_number', 'initial_mass', 'initial_z',
@@ -156,6 +156,6 @@ def test_num_experiments():
     print(len(should))
 
 if __name__ == "__main__":
-    # successful_configs, failed_configs = get_experiment_data()
-    # save_experiments(successful_configs, failed_configs)
-    __ = read_experiments_hdf5(loc="exoplanet_A_MESA_lab_GS_RS.hdf5")
+    successful_configs, failed_configs = get_experiment_data(loc="./LOGS_GS_RS_LONG/")
+    save_experiments(successful_configs, failed_configs, file_name='exoplanet_A_MESA_lab_GS_RS_LONG.hdf5')
+    # __ = read_experiments_hdf5(loc="exoplanet_A_MESA_lab_GS_RS.hdf5")
